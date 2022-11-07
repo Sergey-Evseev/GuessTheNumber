@@ -25,11 +25,11 @@ namespace GuessTheNumber
 
         private void PlayGame(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Hide(); //скрываем показ формы за ненадобностью
             DialogResult result; // переменная для записи нажатой кнопки из метода Show
             int Try = 1; //количество попыток
 
-            while (true)
+            while (true) //бесконечный цикл пока не закроем форму
             {
                 result = MessageBox.Show($"{new Random().Next(1, 2000)}",
                     $"Вы загадали число", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
