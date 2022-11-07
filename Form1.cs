@@ -25,6 +25,7 @@ namespace GuessTheNumber
 
         private void PlayGame(object sender, EventArgs e)
         {
+            this.Hide();
             DialogResult result; // переменная для записи нажатой кнопки из метода Show
             int Try = 1; //количество попыток
 
@@ -35,22 +36,18 @@ namespace GuessTheNumber
 
                 if (result == DialogResult.Yes)
                 {
-                    MessageBox.Show($"Количество попыток{Try}", "Success",
+                    MessageBox.Show($"Количество попыток: {Try}", "Success",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Try = 0; //обнуляем кол-во попыток в текущей игре
-                
-                    result = MessageBox.Show ($"Новая игра", "Продолжить", 
-                        MessageBoxButtons.YesNo, )
-                
+
+                    result = MessageBox.Show($"Новая игра", "Продолжить",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if (result == DialogResult.No) this.Close();                
                 }
 
-                Try++; //инкремент попыток
-
-                
-                
+                Try++; //инкремент количества попыток
             }
         }
-
-
     }
 }
