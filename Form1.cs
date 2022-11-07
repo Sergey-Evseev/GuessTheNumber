@@ -32,7 +32,7 @@ namespace GuessTheNumber
             while (true) //бесконечный цикл пока не закроем форму
             {
                 result = MessageBox.Show($"{new Random().Next(1, 2000)}",
-                    $"Вы загадали число", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    $"Вы загадали число", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
 
                 if (result == DialogResult.Yes)
                 {
@@ -45,6 +45,7 @@ namespace GuessTheNumber
 
                     if (result == DialogResult.No) this.Close();                
                 }
+                if (result == DialogResult.Cancel) this.Close();
 
                 Try++; //инкремент количества попыток
             }
