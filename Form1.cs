@@ -20,6 +20,37 @@ namespace GuessTheNumber
         public Form1()
         {
             InitializeComponent();
+            this.Shown += PlayGame; //обработчик закреплен на событие "первый показ формы"
         }
+
+        private void PlayGame(object sender, EventArgs e)
+        {
+            DialogResult result; // переменная для записи нажатой кнопки из метода Show
+            int Try = 1; //количество попыток
+
+            while (true)
+            {
+                result = MessageBox.Show($"{new Random().Next(1, 2000)}",
+                    $"Вы загадали число", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    MessageBox.Show($"Количество попыток{Try}", "Success",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Try = 0; //обнуляем кол-во попыток в текущей игре
+                
+                    result = MessageBox.Show ($"Новая игра", "Продолжить", 
+                        MessageBoxButtons.YesNo, )
+                
+                }
+
+                Try++; //инкремент попыток
+
+                
+                
+            }
+        }
+
+
     }
 }
